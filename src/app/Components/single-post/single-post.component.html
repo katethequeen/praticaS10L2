@@ -1,0 +1,25 @@
+<div
+  class="card my-5"
+  *ngIf="post"
+  [ngStyle]="{ border: post.active ? '1px solid blue' : '1px solid red' }"
+>
+  <div class="card-body d-flex flex-column flex-grow-1">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text justify-text">{{ post.body }}</p>
+    <ul
+      class="list-group list-group-flush d-flex justify-content-center flex-row mt-auto"
+    >
+      <li
+        class="list-group-item"
+        *ngFor="let tag of post.tags"
+        [appColora]="tag"
+      >
+        #{{ tag | upperCase }}
+      </li>
+    </ul>
+    <a [routerLink]="['/post-details', post.id]" class="btn btn-primary"
+      >Vedi Dettagli</a
+    >
+    <ng-content></ng-content>
+  </div>
+</div>

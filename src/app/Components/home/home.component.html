@@ -1,0 +1,13 @@
+<h2>In Evidenza</h2>
+
+<div>
+  <app-single-post [post]="primoPost"></app-single-post>
+</div>
+
+<h2>Potrebbe Interessarti</h2>
+
+<div class="row">
+  <div class="col col-12 col-md-4 d-flex" *ngFor="let post of arrPosts">
+    <app-single-post [post]="post" class="d-flex flex-fill"></app-single-post>
+  </div>
+</div>
